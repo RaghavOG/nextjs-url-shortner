@@ -1,15 +1,14 @@
+import { NextResponse } from 'next/server'; // Add this import
 import connectMongo from "@/lib/db";   
 import Url from "@/model/url";  
-import { NextRequest, NextResponse } from "next/server";  
 
-export async function GET(
-  req: NextRequest, 
-  { params }: { params: { shortUrl: string } } // Correct typing for params
-) {
+export async function GET(req, { params }) {
   try {
+    // Connect to MongoDB
     await connectMongo();
 
-    const { shortUrl } = await params; // Directly access params without await
+    // Extract the shortUrl from params
+    const { shortUrl } = await params;  // No need to await params
 
     // Find the URL entry in the database
     const urlEntry = await Url.findOne({ shortUrl });
