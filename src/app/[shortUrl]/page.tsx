@@ -3,12 +3,15 @@ import PasswordProtectedForm from './PasswordProtectedForm'
 import Url from "@/model/url"
 import { RedirectComponent } from './RedirectComponent'
 import { BackgroundBeamsWithCollision } from '@/components/ui/background-beams-with-collision'
+import connectMongo from '@/lib/db';
 
 interface Props {
   params: { shortUrl: string };  // Remove Promise, params should be direct object
 }
 
 async function getUrlData(shortUrl: string) {
+  await connectMongo();
+  
   const urlEntry = await Url.findOne({ shortUrl })
 
   if (!urlEntry) {

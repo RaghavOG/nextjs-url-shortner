@@ -8,7 +8,7 @@ export async function POST(
   { params }: { params: { shorturl: string } }
 ) {
 
-await connectMongo();
+    await connectMongo();
   try {
     // Await params before using
     const shorturl = (await Promise.resolve(params)).shorturl;
