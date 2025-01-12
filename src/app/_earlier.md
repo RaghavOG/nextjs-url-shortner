@@ -1,3 +1,4 @@
+```tsx
 'use client'
 
 import { useState } from 'react'
@@ -80,17 +81,12 @@ export default function URLShortener() {
 
   return (
     <BackgroundBeamsWithCollision className="min-h-screen">
-      <div className="min-h-screen text-white flex flex-col justify-between w-full relative">
-        {/* Gradient Background */}
-        <div className="absolute inset-0 bg-black/80" />
-        
-        {/* Animated Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-pink-500/20 animate-gradient-xy" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black/80" />
-
-        <main className="w-full px-4 sm:px-6 py-8 flex-grow flex items-center overflow-x-hidden relative z-10">
+      
+      <div className='bg-black min-h-screen text-white flex flex-col justify-between w-full'
+      
+      >
+        <main className="w-full px-4 sm:px-6 py-8 flex-grow flex items-center overflow-x-hidden">
           <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-12">
-            {/* Left Content */}
             <div className="lg:w-1/2 text-center lg:text-left">
               <motion.div
                 initial={{ opacity: 0, y: -20 }}
@@ -98,9 +94,9 @@ export default function URLShortener() {
                 transition={{ duration: 0.5 }}
                 className="mb-8 lg:mb-0"
               >
-                <h1 className="mt-20 md:mt-4 text-4xl sm:text-5xl lg:text-7xl font-bold mb-4">Linking <Highlight>Link</Highlight></h1>
+                <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-4">Linking <Highlight>Link</Highlight></h1>
                 <p className="text-xl sm:text-2xl text-neutral-400">
-                  <FlipWords words={list1} duration={5000} />Links, Maximize Your Reach
+                  <FlipWords words={list1} duration={5000} /> Links, Maximize Your Reach
                 </p>
               </motion.div>
               <div className="mt-8 space-y-4 hidden lg:block">
@@ -118,23 +114,21 @@ export default function URLShortener() {
                 </div>
               </div>
             </div>
-
-            {/* Right Content - Cards */}
-            <div className="lg:w-1/2 w-full max-w-md relative">
+            <div className="lg:w-1/2 w-full max-w-md"
+            
+            >
               {!message ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="relative group"
                 >
-                  <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-gradient-xy"></div>
-                  <Card className="relative bg-black/90 border-neutral-800 backdrop-blur-sm">
+                  <Card className="bg-black border-neutral-800 w-full">
                     <CardHeader className="px-4 sm:px-6">
                       <CardTitle className="text-2xl text-white font-semibold text-center">Shorten Your URL</CardTitle>
                     </CardHeader>
-                    <CardContent className="px-4 sm:px-6 mt-1">
-                    <form onSubmit={handleSubmit} className="space-y-5">
+                    <CardContent className="px-4 sm:px-6">
+                      <form onSubmit={handleSubmit} className="space-y-4">
                         <div className="relative">
                           <Input
                             type="url"
@@ -222,12 +216,10 @@ export default function URLShortener() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="relative group"
                 >
-                  <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-gradient-xy"></div>
-                  <Card className="relative bg-black/90 border-neutral-800 backdrop-blur-sm">
+                  <Card className="bg-black border-neutral-800 w-full">
                     <CardContent className="flex flex-col items-center justify-center space-y-4 py-6 px-4 sm:px-6">
-                    <p className="text-lg text-neutral-400 mb-2">Your shortened URL:</p>
+                      <p className="text-lg text-neutral-400 mb-2">Your shortened URL:</p>
                       <div className="flex items-center justify-center space-x-2 w-full">
                         <div className="w-full sm:max-w-[80%] break-all">
                           <Link
@@ -263,7 +255,7 @@ export default function URLShortener() {
           </div>
         </main>
 
-        <footer className="bg-neutral-900/80 backdrop-blur-sm py-4 text-center w-full mt-8 relative z-10">
+        <footer className="bg-neutral-900 py-4 text-center w-full mt-8">
           <p className="text-neutral-400">Made with 🫶 by Raghav</p>
           <div className="mt-2 space-x-4">
             <Link href="https://linkedin.com/in/singlaraghav" className="text-indigo-400 hover:text-indigo-300">LinkedIn</Link>
@@ -275,3 +267,5 @@ export default function URLShortener() {
     </BackgroundBeamsWithCollision>
   )
 }
+
+```
