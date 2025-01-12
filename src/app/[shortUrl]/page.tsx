@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// page.tsx
 import PasswordProtectedForm from './PasswordProtectedForm'
 import Url from "@/model/url"
 import { RedirectComponent } from './RedirectComponent'
+import { BackgroundBeamsWithCollision } from '@/components/ui/background-beams-with-collision'
 
 async function getUrlData(shortUrl: string) {
   const urlEntry = await Url.findOne({ shortUrl })
@@ -36,18 +36,25 @@ export default async function ShortUrlPage({
     }
 
     // If we reach here, the URL is password protected
-    return <PasswordProtectedForm shortUrl={shortUrl} />
+    return (
+      <BackgroundBeamsWithCollision className="min-h-screen">
+        <div className="bg-black min-h-screen text-white flex flex-col justify-center items-center w-full px-4 sm:px-6">
+          <PasswordProtectedForm shortUrl={shortUrl} />
+        </div>
+      </BackgroundBeamsWithCollision>
+    )
 
   } catch (error: any) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-100">
-        <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
-          <h1 className="text-2xl font-bold text-center text-red-600">
-            {error.message || 'An error occurred'}
-          </h1>
+      <BackgroundBeamsWithCollision className="min-h-screen">
+        <div className="bg-black min-h-screen text-white flex flex-col justify-center items-center w-full px-4 sm:px-6">
+          <div className="w-full max-w-md">
+            <h1 className="text-2xl sm:text-3xl font-bold text-center text-red-500">
+              {error.message || 'An error occurred'}
+            </h1>
+          </div>
         </div>
-      </div>
+      </BackgroundBeamsWithCollision>
     )
   }
 }
-
