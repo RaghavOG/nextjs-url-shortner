@@ -67,7 +67,7 @@ export default function URLShortener() {
     setTimeout(() => setCopied(false), 2000)
   }
 
-  const list1 = ["Shrink", "Compress", "Minify"]
+  const list1 = ["Shrink", "Minify"]
 
   const resetForm = () => {
     setOriginalUrl('')
@@ -100,7 +100,7 @@ export default function URLShortener() {
               >
                 <h1 className="mt-20 md:mt-4 text-4xl sm:text-5xl lg:text-7xl font-bold mb-4">Linking <Highlight>Link</Highlight></h1>
                 <p className="text-xl sm:text-2xl text-neutral-400">
-                  <FlipWords words={list1} duration={5000} />Links, Maximize Your Reach
+                  <FlipWords words={list1} duration={5000} /> Links, Maximize Your Reach
                 </p>
               </motion.div>
               <div className="mt-8 space-y-4 hidden lg:block">
@@ -263,7 +263,7 @@ export default function URLShortener() {
           </div>
         </main>
 
-        <footer className="bg-neutral-900/80 backdrop-blur-sm py-4 text-center w-full mt-8 relative z-10">
+        <footer className="bg-neutral-900/80 backdrop-blur-sm py-4 text-center w-full mt-8 relative z-10 mb-4 md:mb-0">
           <p className="text-neutral-400">Made with 🫶 by Raghav</p>
           <div className="mt-2 space-x-4">
             <Link href="https://linkedin.com/in/singlaraghav" className="text-indigo-400 hover:text-indigo-300">LinkedIn</Link>
