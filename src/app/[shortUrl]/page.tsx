@@ -5,7 +5,7 @@ import { RedirectComponent } from './RedirectComponent'
 import { BackgroundBeamsWithCollision } from '@/components/ui/background-beams-with-collision'
 
 interface Props {
-  params: Promise<{ shortUrl: string }>;
+  params: { shortUrl: string };  // Remove Promise, params should be direct object
 }
 
 async function getUrlData(shortUrl: string) {
@@ -30,7 +30,6 @@ export default async function ShortUrlPage({
   try {
     const urlData = await getUrlData(shortUrl)
 
-    // If URL is not password protected, return special component for client-side redirect
     if (!urlData.isPasswordProtected) {
       return (
         <RedirectComponent url={urlData.originalUrl} />
