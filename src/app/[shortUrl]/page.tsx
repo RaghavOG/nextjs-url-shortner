@@ -4,6 +4,10 @@ import Url from "@/model/url"
 import { RedirectComponent } from './RedirectComponent'
 import { BackgroundBeamsWithCollision } from '@/components/ui/background-beams-with-collision'
 
+interface Props {
+  params: { shortUrl: string };
+}
+
 async function getUrlData(shortUrl: string) {
   const urlEntry = await Url.findOne({ shortUrl })
   
@@ -20,9 +24,7 @@ async function getUrlData(shortUrl: string) {
 
 export default async function ShortUrlPage({ 
   params 
-}: { 
-  params: { shortUrl: string } 
-}) {
+}: Props) {
   const shortUrl = (await Promise.resolve(params)).shortUrl
 
   try {
