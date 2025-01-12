@@ -5,12 +5,12 @@ import { RedirectComponent } from './RedirectComponent'
 import { BackgroundBeamsWithCollision } from '@/components/ui/background-beams-with-collision'
 
 interface Props {
-  params: { shortUrl: string };
+  params: Promise<{ shortUrl: string }>;
 }
 
 async function getUrlData(shortUrl: string) {
   const urlEntry = await Url.findOne({ shortUrl })
-  
+
   if (!urlEntry) {
     throw new Error("Short URL not found")
   }
@@ -22,10 +22,10 @@ async function getUrlData(shortUrl: string) {
   return urlEntry
 }
 
-export default async function ShortUrlPage({ 
-  params 
+export default async function ShortUrlPage({
+  params
 }: Props) {
-  const shortUrl = (await Promise.resolve(params)).shortUrl
+  const shortUrl = (await params).shortUrl
 
   try {
     const urlData = await getUrlData(shortUrl)
