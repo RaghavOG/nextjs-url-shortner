@@ -128,7 +128,7 @@ export default function URLShortener() {
                   transition={{ duration: 0.5, delay: 0.2 }}
                   className="relative group"
                 >
-                  <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-gradient-xy"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000  animate-gradient-xy"></div>
                   <Card className="relative bg-black/90 border-neutral-800 backdrop-blur-sm">
                     <CardHeader className="px-4 sm:px-6">
                       <CardTitle className="text-2xl text-white font-semibold text-center">Shorten Your URL</CardTitle>

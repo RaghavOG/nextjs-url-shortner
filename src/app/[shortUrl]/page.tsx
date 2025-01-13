@@ -42,7 +42,7 @@ export default async function ShortUrlPage({
     // If we reach here, the URL is password protected
     return (
       <BackgroundBeamsWithCollision className="min-h-screen">
-        <div className="bg-black min-h-screen text-white flex flex-col justify-center items-center w-full px-4 sm:px-6">
+        <div className="bg-black min-h-screen text-white flex flex-col justify-center items-center w-full">
           <PasswordProtectedForm shortUrl={shortUrl} />
         </div>
       </BackgroundBeamsWithCollision>
