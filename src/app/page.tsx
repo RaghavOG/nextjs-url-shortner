@@ -142,7 +142,8 @@ export default function URLShortener() {
                             value={originalUrl}
                             onChange={(e) => setOriginalUrl(e.target.value)}
                             required
-                            className="bg-neutral-900 text-neutral-100 border-neutral-700 focus:ring-2 focus:ring-indigo-500 pl-10"
+                            disabled={loading}
+                            className="bg-neutral-900 disabled:opacity-50 disabled:cursor-not-allowed text-neutral-100 border-neutral-700 focus:ring-2 focus:ring-indigo-500 pl-10"
                           />
                           <LinkIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400" size={18} />
                         </div>
@@ -151,8 +152,9 @@ export default function URLShortener() {
                             type="text"
                             placeholder="Custom short URL (optional)"
                             value={shortUrl}
+                            disabled={loading}
                             onChange={(e) => setShortUrl(e.target.value)}
-                            className="bg-neutral-900 text-neutral-100 border-neutral-700 focus:ring-2 focus:ring-indigo-500 pl-10"
+                            className="bg-neutral-900 text-neutral-100 disabled:opacity-50 disabled:cursor-not-allowed border-neutral-700 focus:ring-2 focus:ring-indigo-500 pl-10"
                           />
                           <LinkIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400" size={18} />
                         </div>
@@ -160,7 +162,9 @@ export default function URLShortener() {
                           <Switch
                             id="password-protection"
                             checked={isPasswordProtected}
+                            disabled={loading}
                             onCheckedChange={setIsPasswordProtected}
+                             className="disabled:opacity-50"
                           />
                           <Label htmlFor="password-protection" className="text-neutral-300">Password Protection</Label>
                         </div>
@@ -172,7 +176,8 @@ export default function URLShortener() {
                               value={password}
                               onChange={(e) => setPassword(e.target.value)}
                               required
-                              className="bg-neutral-900 text-neutral-100 border-neutral-700 focus:ring-2 focus:ring-indigo-500 pl-10"
+                              disabled={loading}
+                              className="bg-neutral-900 disabled:opacity-50 disabled:cursor-not-allowed text-neutral-100 border-neutral-700 focus:ring-2 focus:ring-indigo-500 pl-10"
                             />
                             <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400" size={18} />
                           </div>
@@ -183,9 +188,11 @@ export default function URLShortener() {
                             <PopoverTrigger asChild>
                               <Button
                                 variant={"outline"}
+                                disabled={loading}
                                 className={cn(
-                                  "w-full justify-start text-left font-normal",
+                                  "w-full justify-start text-left font-normal disabled:opacity-50 disabled:cursor-not-allowed",
                                   !expirationDate && "text-neutral-400"
+
                                 )}
                               >
                                 <CalendarIcon className="mr-2 h-4 w-4" />
@@ -198,13 +205,14 @@ export default function URLShortener() {
                                 selected={expirationDate}
                                 onSelect={setExpirationDate}
                                 initialFocus
+                                disabled={loading}
                               />
                             </PopoverContent>
                           </Popover>
                         </div>
                         <Button
                           type="submit"
-                          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white focus:ring-2 focus:ring-indigo-500 transition-all duration-300 ease-in-out transform hover:scale-105"
+                          className="w-full disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none bg-indigo-600 hover:bg-indigo-700 text-white focus:ring-2 focus:ring-indigo-500 transition-all duration-300 ease-in-out transform hover:scale-105"
                           disabled={loading}
                         >
                           {loading ? (
